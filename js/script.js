@@ -41,7 +41,8 @@ function render() {
   let $synDataString = $synData.join(', ')
   // for(let x=0; x < wordData[0].meanings[0].definitions[0].synonyms.length; x++){
   $synContainer.after(`<p id=syndesc${i}>${$synDataString}</p>`)}
-  $sound.html(`<source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg">"`)}
-
+  $sound.empty()
+  $sound.html(`<audio controls id="pronounce"><source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg"</audio>"`)}
+  // $sound.html(`<source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg">"`)}
 
 $('form').on('submit', getWord);
