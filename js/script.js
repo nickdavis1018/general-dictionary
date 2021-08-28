@@ -35,10 +35,12 @@ function render() {
   $origin.text(`${wordData[0].origin}`)
   for(let i=0; i < wordData[0].meanings[0].definitions.length; i++){
   $definition.append(`<p id=define${i}>${wordData[0].meanings[0].definitions[i].definition}</p>`)
-  let $synItem = $(`#define${i}`)
-  for(let x=0; x < wordData[0].meanings[0].definitions[0].synonyms.length; x++){
-  $synItem.append(`<li id=syndesc${x}>${wordData[0].meanings[0].definitions[0].synonyms[x]}</li>`)}}
-
+  $(`#define${i}`).css("font-weight", "bold")
+  let $synContainer = $(`#define${i}`)
+  let $synData = wordData[0].meanings[0].definitions[i].synonyms.slice(0, 20)
+  let $synDataString = $synData.join(', ')
+  // for(let x=0; x < wordData[0].meanings[0].definitions[0].synonyms.length; x++){
+  $synContainer.after(`<p id=syndesc${i}>${$synDataString}</p>`)}
   $sound.html(`<source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg">"`)}
 
 
