@@ -1,5 +1,7 @@
 let wordData;
+let randomData;
 
+const $body = $('body')
 const $word = $('#word');
 const $phonetic = $('#phonetic');
 const $origin = $('#origin');
@@ -7,6 +9,9 @@ const $synonyms = $('#synonyms');
 const $sound = $('#pronounce');
 const $definition = $('#definition')
 const $input = $('input[id="textsubmit"]');
+const $randWord = $("#random-word")
+const $randWordDesc = $("#random-word-description")
+const $randWordPronounce = $("#random-word-pronounce")
 
 function getWord(event){
   event.preventDefault();
@@ -20,11 +25,14 @@ function getWord(event){
       $input.val('');
     },
     function(error){
+    // let $userSearch = $input.val()
+    // let $searchQuery = $userSearch.slice(0, 3)
+    // $searchQuery 
     $word.text("Error!");
     $phonetic.text("Error!");
     $origin.text("Error!");
     $synonyms.text("Error!");
-    $definition.text("Error!")
+    $definition.text("Error!");
     }
   )
 }
@@ -45,4 +53,40 @@ function render() {
   $sound.html(`<audio controls id="pronounce"><source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg"</audio>"`)}
   // $sound.html(`<source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg">"`)}
 
+function randomWord(event){
+  $.ajax({
+    url: 'https://random-words-api.vercel.app/word'
+  }).then(
+    function(data){
+      randomData = data;
+      $randWord.text(`${randomData[0].word}`)
+      $randWordDesc.text(`${randomData[0].definition}`)
+      $randWordPronounce.text(`${randomData[0].pronunciation}`)
+    },
+    function(error){
+      $randWord.html("Error. Word retrieval failed. Please try again.")
+      $randWordDesc.html("Error. Word description retrieval failed. Please try again.")
+      $randWordPronounce.html("Error. Word pronunciation retrieval failed. Please try again.")
+    }
+  )}
+
 $('form').on('submit', getWord);
+$(document).ready(function randomWord(event){
+  $.ajax({
+    url: 'https://random-words-api.vercel.app/word'
+  }).then(
+    function(data){
+      randomData = data;
+      $randWord.text(`${randomData[0].word}`)
+      $randWordDesc.text(`${randomData[0].definition}`)
+      $randWordPronounce.text(`${randomData[0].pronunciation}`)
+    },
+    function(error){
+      $randWord.html("Error. Word retrieval failed. Please try again.")
+      $randWordDesc.html("Error. Word description retrieval failed. Please try again.")
+      $randWordPronounce.html("Error. Word pronunciation retrieval failed. Please try again.")
+    }
+  )})
+
+
+

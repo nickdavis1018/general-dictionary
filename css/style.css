@@ -11,4 +11,20 @@
     align-items: center;
   } */
 
+h1{
+  text-align: center;
+  background: green;
+  margin: -10px -10px auto;
+}
 
+/* #flex{
+  display: flex;
+  flex-direction: row;
+} */
+
+#banner{
+  display: flex;
+  justify-content: space-around;
+  background-color: palegoldenrod;
+  margin: auto -10px auto -10px;
+}
