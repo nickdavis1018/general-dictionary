@@ -27,24 +27,26 @@
 </div>
 </header>
 <div id="flex">
-<h2>Random Word of the Day</h2>
+<h2>Random Vocabulary Word</h2>
 <p id="random-word"></p>
-<p id="random-word-description"></p>
 <p id="random-word-pronounce"></p>
-<h2>Free Word Search</h2>
+<div id="random-word-description"></div>
+<div id="random-word-synonyms"></div>   
 </div>
-
+<h2>Free Word Search</h2>
         <main>
             <form>
                 <input type="text" id="textsubmit" placeholder="Search a word..."/>
                 <input type="submit" id="search" value="Get details" />
                 
             </form>
+            <div id="main-flex">
               <p>Word </p> <p id="word"></p>
               <p>Phonetic </p> <p id="phonetic"></p>
               <p>Origin</p> <p id="origin"></p>
-              <p>Synonyms</p> <ul id="synonyms"></ul>
-              <p>Definition(s)</p> <ul id="definition"></ul>
+              <div id="word-type"></div>
+              <div id="definition"></div>
+            </div>
             </main>
     
     <div id="pronounce">

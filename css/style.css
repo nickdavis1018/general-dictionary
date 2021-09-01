@@ -28,3 +28,7 @@ h1{
   background-color: palegoldenrod;
   margin: auto -10px auto -10px;
 }
+
+.definition-css{
+  border: 1px solid black
+}
