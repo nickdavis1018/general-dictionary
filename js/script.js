@@ -31,9 +31,6 @@ function getWord(event){
       render();
     },
     function(error){
-    // let $userSearch = $input.val()
-    // let $searchQuery = $userSearch.slice(0, 3)
-    // $searchQuery 
     $word.text("Error!");
     $phonetic.text("Error!");
     $origin.text("Error!");
@@ -105,7 +102,7 @@ function clearRandom(){
 function expandDetails(){
   $input.val(`${randomDataRef[0].word}`)
   getWord()
-  
+
 }
 
     $('form').on('submit', getWord);
