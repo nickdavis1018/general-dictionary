@@ -65,7 +65,6 @@ function render() {
       }
     }
 }
-
 function randomWord(){
   $.ajax({
     url: 'https://random-words-api.vercel.app/word'
@@ -82,7 +81,6 @@ function randomWord(){
           for(let i=0; i < randomDataRef[0].meanings[0].definitions.length; i++){
           $randWordDesc.append(`<p id="random-define${i}">${randomDataRef[0].meanings[0].definitions[i].definition}</p>`)
           $(`#random-define${i}`).css("font-weight", "bold")
-          $(`#random-define${i}`).after(`<p id=`)
           if(randomDataRef[0].meanings[0].definitions[i].synonyms === true){
           let $randSynContainer = $(`#random-define${i}`)
           let $randSynData = randomDataRef[0].meanings[0].definitions[i].synonyms.slice(0, 20)
@@ -96,8 +94,22 @@ function randomWord(){
       $randWord.html("Error. Word retrieval failed. Please try again.")
       $randWordDesc.html("Error. Word description retrieval failed. Please try again.")
       $randWordPronounce.html("Error. Word pronunciation retrieval failed. Please try again.")})}
-       
+
+function clearRandom(){
+  $randWord.empty()
+  $randWordPronounce.empty()
+  $randWordDesc.empty()
+  randomWord()
+}
+
+function expandDetails(){
+  $input.val(`${randomDataRef[0].word}`)
+  getWord()
+  
+}
 
     $('form').on('submit', getWord);
-    $(document).ready(randomWord)
+    $(document).ready(randomWord);
+    $('#reset').on('click', clearRandom)
+    $('#expand').on('click', expandDetails)
 
