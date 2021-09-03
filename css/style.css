@@ -17,12 +17,12 @@ h1{
   margin: -10px -10px auto;
 }
 
-#style-group{
-  border: 1px solid black;
+#random-box{
+  text-align: center;
 }
 
-#flex{
-  margin: 2
+#style-group{
+  border: 1px solid black;
 }
 
 /* #flex{
@@ -35,10 +35,6 @@ h1{
   justify-content: space-around;
   background-color: palegoldenrod;
   margin: auto -10px auto -10px;
-}
-
-.definition-css{
-  border: 1px solid black
 }
 
 .ant-css{

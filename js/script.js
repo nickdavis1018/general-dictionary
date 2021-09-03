@@ -10,13 +10,12 @@ const $synonyms = $('#synonyms');
 const $antonyms = $('#antonyms');
 const $sound = $('#pronounce');
 const $definition = $('#definition')
-const $input = $('input[id="textsubmit"]');
+const $input = $('input[id="text-submit"]');
 const $randWord = $("#random-word")
 const $randWordDesc = $("#random-word-description")
-const $randWordPronounce = $("#random-word-pronounce")
-const $randWordSynonyms = $("#random-word-synonyms")
 const $wordType = $("#word-type")
 const $master = $("#main-flex")
+const $randContainer = $("#flex")
 
 function getWord(event){
   event.preventDefault();
@@ -49,17 +48,20 @@ function render() {
     for(let i=0; i < wordData[0].meanings.length; i++){
     const speech = wordData[0].meanings[i].partOfSpeech
       for(let x=0; x < wordData[0].meanings[i].definitions.length; x++){
-      $definition.append(`<p class="word-css" id="define${x}">${speech}: ${wordData[0].meanings[i].definitions[x].definition}</p>`)
+      $definition.append(`<p class="word-css" id="define${x}">${speech}; <br> ${wordData[0].meanings[i].definitions[x].definition}</p>`)
       $definition.css("font-weight", "bold")
-      const $exDataString = wordData[0].meanings[i].definitions[x].example.charAt(0).toUpperCase() + wordData[0].meanings[i].definitions[x].example.slice(1)
-      $definition.append(`<p class="ex-css" id="example-text${x}">ex: "${$exDataString}"</p>`)
+      if(wordData[0].meanings[i].definitions[x].example !== false){
+      const $exDataString = wordData[0].meanings[i].definitions[x].example
+      $definition.append(`<p class="ex-css" id="example-text${x}">ex: "${$exDataString}"</p>`)}
+      if(wordData[0].meanings[i].definitions[x].synonyms !== false){
       let $synData = wordData[0].meanings[i].definitions[x].synonyms.slice(0, 20)
       let $synDataString = $synData.join(', ')
-      $definition.append(`<p class="syn-css" id="syndesc${x}">${$synDataString}</p>`)
+      $definition.append(`<p class="syn-css" id="syndesc${x}">${$synDataString}</p>`)}
+      if(wordData[0].meanings[i].definitions[x].antonyms !== false){
       let $antData = wordData[0].meanings[i].definitions[x].antonyms.slice(0, 10)
       let $antDataString = $antData.join(', ')
       $definition.append(`<p class="ant-css" id="antdesc${x}">${$antDataString}</p></div>`)
-      }
+      }}
     }
 }
 function randomWord(){
@@ -73,36 +75,31 @@ function randomWord(){
       }).then(
           function(data){
           randomDataRef = data;
-          $randWord.text(`${randomDataRef[0].word}`)
-          $randWordPronounce.text(`${randomDataRef[0].phonetic}`)
-          for(let i=0; i < randomDataRef[0].meanings[0].definitions.length; i++){
-          $randWordDesc.append(`<p id="random-define${i}">${randomDataRef[0].meanings[0].definitions[i].definition}</p>`)
-          $(`#random-define${i}`).css("font-weight", "bold")
-          if(randomDataRef[0].meanings[0].definitions[i].synonyms === true){
-          let $randSynContainer = $(`#random-define${i}`)
-          let $randSynData = randomDataRef[0].meanings[0].definitions[i].synonyms.slice(0, 20)
-          let $randSynDataString = $randSynData.join(', ')
-          $randSynContainer.after(`<p id="syndesc${i}">Synonyms: ${$randSynDataString}</p>`)}}
-          },
+          $randWord.html(`<strong>${randomDataRef[0].word}</strong>`)
+          for(let i=0; i < randomDataRef[0].meanings.length; i++){
+            const randSpeech = randomDataRef[0].meanings[i].partOfSpeech
+              for(let x=0; x < randomDataRef[0].meanings[i].definitions.length; x++){
+              $randWordDesc.append(`<p class="rand-word-css" id="rand-define${x}"><strong></strong>${randSpeech}; <br>${randomDataRef[0].meanings[i].definitions[x].definition}</p>`)
+              if(randomDataRef[0].meanings[i].definitions[x].example){
+              const $exRandDataString = randomDataRef[0].meanings[i].definitions[x].example
+              $randWordDesc.append(`<p class="rand-ex-css" id="rand-example-text${x}"><i>ex: "${$exRandDataString}"</p></i>`)}
+              
+          }}},
           function(error){
           randomWord();
             })},
     function(error){
-      $randWord.html("Error. Word retrieval failed. Please try again.")
-      $randWordDesc.html("Error. Word description retrieval failed. Please try again.")
-      $randWordPronounce.html("Error. Word pronunciation retrieval failed. Please try again.")})}
+      $randWord.html("Error. Word retrieval failed. Please try again.")})}
 
 function clearRandom(){
   $randWord.empty()
-  $randWordPronounce.empty()
   $randWordDesc.empty()
   randomWord()
 }
 
 function expandDetails(){
   $input.val(`${randomDataRef[0].word}`)
-  getWord()
-
+  $("#search").click()
 }
 
     $('form').on('submit', getWord);
