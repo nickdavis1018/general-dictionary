@@ -1,5 +1,3 @@
-
-
 h1{
   text-align: center;
   background-color: #008055;
@@ -10,17 +8,32 @@ h2{
   font-size: 20px;
 }
 
+#rand-title{
+  text-align: center;
+  margin: 20px;
+}
+
 h3{
   font-size: 15px;
-
-
 }
+
+#learn-rand-title{
+  text-align: center;
+  margin: 5px;
+}
+
 #word{
-width: 48px;
-height: 38px;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
+  width: 48px;
+  height: 10px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+#random-word{
+  text-align: center;
+  height: 10px;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 #text-submit{
@@ -29,15 +42,16 @@ font-size: 32px;
   border: 1px solid #CCD0D9;
   box-sizing: border-box;
   border-radius: 6px;
-  color: #434A54;}
+  color: #434A54;
+}
 
-  #search{
-    width: 100px;
-    height: 30px;
-    border: 1px solid #CCD0D9;
-    box-sizing: border-box;
-    border-radius: 6px;
-  }
+#search{
+  width: 100px;
+  height: 30px;
+  border: 1px solid #CCD0D9;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
 
 #reset{
   width: 100px;
@@ -59,15 +73,6 @@ font-size: 32px;
   display: flex;
   justify-content: space-around;
   background-color: palegoldenrod;
-  margin: 0 auto;
-}
-
-#phonetic{
-  padding: 0x 0px 0px 0px
-}
-
-body{
-  background-color:rgb(185, 181, 181);
 }
 
 .ant-css{
@@ -82,3 +87,18 @@ body{
   padding: 0px 0px 0px 20px
 }
 
+#random-container{
+  display: flex;
+  justify-content: center;
+}
+
+#random-word-box{
+  border: 2px solid black;
+  border-radius: 12px;
+  max-width: 750px;
+  text-align: center;
+}
+
+#pronounce{
+  width: 300px;
+}

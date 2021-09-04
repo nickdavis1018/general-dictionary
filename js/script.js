@@ -13,9 +13,6 @@ const $definition = $('#definition')
 const $input = $('input[id="text-submit"]');
 const $randWord = $("#random-word")
 const $randWordDesc = $("#random-word-description")
-const $wordType = $("#word-type")
-const $master = $("#main-flex")
-const $randContainer = $("#flex")
 
 function getWord(event){
   event.preventDefault();
@@ -30,7 +27,7 @@ function getWord(event){
       render();
     },
     function(error){
-    $definition.text(`Something went wrong. "${$input.val()}" did not match our database and failed to return any results. Please try again`);
+    $definition.text(`Something went wrong. "${$input.val()}" did not match our database and failed to return any results. Please try again with a different search.`);
     }
   )
 }
@@ -46,7 +43,7 @@ function render() {
   $origin.html(`Origin Unkown`)
   }
   else{
-  $origin.html(`Origin <br> ${wordData[0].origin}`)}
+  $origin.html(`${wordData[0].origin}`)}
   $sound.empty()
   $sound.html(`<audio controls id="pronounce"><source src="https:${wordData[0].phonetics[0].audio}" type="audio/mpeg"</audio>"`)
     for(let i=0; i < wordData[0].meanings.length; i++){
@@ -67,6 +64,7 @@ function render() {
         $(`#define${i}-${x}`).css("border-color", "black")
         $definition.css("border", "solid")
         $definition.css("border-color", "black")
+        $definition.css("border-radius", "8px")
     }
   }
 }
@@ -81,14 +79,13 @@ function randomWord(){
       }).then(
           function(data){
           randomDataRef = data;
-          $randWord.html(`<i><strong>${randomDataRef[0].word}</strong></i>`)
+          $randWord.html(`<strong><i>${randomDataRef[0].word}<i></strong>`)
           for(let i=0; i < randomDataRef[0].meanings.length; i++){
-            const randSpeech = randomDataRef[0].meanings[i].partOfSpeech
-              for(let x=0; x < randomDataRef[0].meanings[i].definitions.length; x++){
-              $randWordDesc.append(`<p class="rand-word-css" id="rand-define${x}"><strong></strong>${randSpeech};<br>${randomDataRef[0].meanings[i].definitions[x].definition}</p>`)
-              if(randomDataRef[0].meanings[i].definitions[x].example){
+            for(let x=0; x < randomDataRef[0].meanings[i].definitions.length; x++){
+              $randWordDesc.append(`<p class="rand-word-css"><i>(${randomDataRef[0].meanings[i].partOfSpeech})</i><br><i>${randomDataRef[0].meanings[i].definitions[x].definition}</i></p>`)
+              if(randomDataRef[0].meanings[i].definitions[x].example !== undefined){
               const $exRandDataString = randomDataRef[0].meanings[i].definitions[x].example
-              $randWordDesc.append(`<p class="rand-ex-css" id="rand-example-text${x}"><i>ex: "${$exRandDataString}"</p></i>`)}
+              $(`#rand-word-id`).append(`<p class="rand-ex-css" id="rand-example-text${i}-${x}"><i>ex: "${$exRandDataString}"</p></i>`)}
           }}},
           function(error){
           randomWord();
