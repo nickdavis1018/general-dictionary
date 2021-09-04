@@ -1,50 +1,84 @@
-/* main {
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 600px;
-    height: 600px;
-    margin: auto;
-    align-items: center;
-  } */
+
 
 h1{
   text-align: center;
-  background: green;
+  background-color: #008055;
   margin: -10px -10px auto;
 }
 
-#random-box{
-  text-align: center;
+h2{
+  font-size: 20px;
 }
 
-#style-group{
-  border: 1px solid black;
+h3{
+  font-size: 15px;
+
+
+}
+#word{
+width: 48px;
+height: 38px;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
 }
 
-/* #flex{
-  display: flex;
-  flex-direction: row;
-} */
+#text-submit{
+  width: 170px;
+  height: 30px;
+  border: 1px solid #CCD0D9;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #434A54;}
+
+  #search{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #CCD0D9;
+    box-sizing: border-box;
+    border-radius: 6px;
+  }
+
+#reset{
+  width: 100px;
+  height: 30px;
+  border: 1px solid #CCD0D9;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+#expand{
+  width: 100px;
+  height: 30px;
+  border: 1px solid #CCD0D9;
+  box-sizing: border-box;
+  border-radius: 6px;
+} 
 
 #banner{
   display: flex;
   justify-content: space-around;
   background-color: palegoldenrod;
-  margin: auto -10px auto -10px;
+  margin: 0 auto;
 }
 
-.ant-css{
-  color: red;
-}
-
-.syn-css{
-  color: blue;
+#phonetic{
+  padding: 0x 0px 0px 0px
 }
 
 body{
   background-color:rgb(185, 181, 181);
 }
+
+.ant-css{
+  padding: 0px 0px 0px 20px
+}
+
+.syn-css{
+  padding: 0px 0px 0px 20px
+}
+
+.ex-css{
+  padding: 0px 0px 0px 20px
+}
+
