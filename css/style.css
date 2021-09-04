@@ -1,3 +1,7 @@
+body{
+  font-family: 'Roboto';
+}
+
 h1{
   text-align: center;
   background-color: #008055;
@@ -8,18 +12,14 @@ h2{
   font-size: 20px;
 }
 
-#rand-title{
-  text-align: center;
-  margin: 20px;
-}
-
 h3{
-  font-size: 15px;
+  font-size: 14px;
+  font-style: italic;
+  margin: -10px 0px 25px 0px
 }
 
 #learn-rand-title{
   text-align: center;
-  margin: 5px;
 }
 
 #word{
@@ -33,7 +33,8 @@ h3{
   text-align: center;
   height: 10px;
   font-weight: bold;
-  font-size: 24px;
+  font-style: italic;
+  font-size: 22px;
 }
 
 #text-submit{
@@ -70,6 +71,7 @@ h3{
 } 
 
 #banner{
+  margin: 0px -10px auto;
   display: flex;
   justify-content: space-around;
   background-color: palegoldenrod;
@@ -95,10 +97,26 @@ h3{
 #random-word-box{
   border: 2px solid black;
   border-radius: 12px;
-  max-width: 750px;
+  width: 2000px;
   text-align: center;
+  background-color: rgb(182, 181, 181);
+  margin: 0px -20px 0px -20px;
+  padding: 0px 0px 20px 0px;
 }
 
 #pronounce{
   width: 300px;
+}
+
+#word-search{
+  text-align: center;
+  border: 2px solid black;
+  background-color: rgb(182, 181, 181);
+  border-radius: 12px;
+  margin: 0px -20px 0px -20px;
+  padding: 0px 0px 20px 0px
+}
+
+.uniform{
+  background-color: #31d49e;
 }

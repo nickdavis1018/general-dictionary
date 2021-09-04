@@ -54,11 +54,11 @@ function render() {
           $(`#define${i}-${x}`).append(`<p class="ex-css"><i>Example: "${$exDataString}"</i></p>`)}
         if(wordData[0].meanings[i].definitions[x].synonyms.length > 0){
           let $synData = wordData[0].meanings[i].definitions[x].synonyms.slice(0, 20)
-          let $synDataString = $synData.join(', ')
+          let $synDataString = $synData.join(' --- ')
           $(`#define${i}-${x}`).append(`<p class="syn-css"><i>Synonyms: ${$synDataString}</i></p>`)}
         if(wordData[0].meanings[i].definitions[x].antonyms.length > 0){
           let $antData = wordData[0].meanings[i].definitions[x].antonyms.slice(0, 10)
-          let $antDataString = $antData.join(', ')
+          let $antDataString = $antData.join(' --- ')
           $(`#define${i}-${x}`).append(`<p class="ant-css"><i>Antonyms: ${$antDataString}</i></p></div>`)}
         $(`#define${i}-${x}`).css("border", "solid")
         $(`#define${i}-${x}`).css("border-color", "black")
@@ -79,7 +79,7 @@ function randomWord(){
       }).then(
           function(data){
           randomDataRef = data;
-          $randWord.html(`<strong><i>${randomDataRef[0].word}<i></strong>`)
+          $randWord.html(`${randomDataRef[0].word}`)
           for(let i=0; i < randomDataRef[0].meanings.length; i++){
             for(let x=0; x < randomDataRef[0].meanings[i].definitions.length; x++){
               $randWordDesc.append(`<p class="rand-word-css"><i>(${randomDataRef[0].meanings[i].partOfSpeech})</i><br><i>${randomDataRef[0].meanings[i].definitions[x].definition}</i></p>`)
