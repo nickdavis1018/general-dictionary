@@ -43,4 +43,4 @@ General Dictionary
 <a href="https://github.com/RazorSh4rk/random-word-api">GitHub Repo</a><br>
 <a href="https://random-word-api.herokuapp.com/word?number=1">API Example</a><br>
 <h2>Provide Feedback</h2>
-<p>Have feedback you would like to share? Want to see a feature added? Want to contribute? <a href = "mailto: nickdavis1018@gmail.com">Send me an email!</a></p>
+<p>Have feedback you would like to share? Want to see a feature added? Want to contribute? <a href = "mailto: nickdavis1018@gmail.com">Send me an email!</a><br></p>
