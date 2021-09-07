@@ -8,6 +8,7 @@ body {
   margin: 0px;
   min-height: 100%;
   width: 100%;
+  font-family: "Roboto";
 }
 
 h1{
@@ -45,7 +46,6 @@ h1{
   position: relative;
   top: 20px;
 }
-
 
 #word-search-title{
   font-size: 14px;
@@ -197,6 +197,10 @@ form{
   color: white;
 }
 
+#favorites{
+  color: white;
+}
+
 #search-result{
   position: relative;
   bottom: 80px;
@@ -205,4 +209,23 @@ form{
 #definition{
   position: relative;
   bottom: 130px;
+}
+
+#error-text{
+  text-align: center;
+}
+
+#favorite-submit{
+  border: 1px solid #CCD0D9;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 90px;
+  height: 20px;
+  position: relative;
+  bottom: 8px;
+  font-size: 10px;
+  color: #434A54;
+  font-weight: bold;
+  background-color: #DFE0E5;
 }
