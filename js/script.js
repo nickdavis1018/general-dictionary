@@ -146,9 +146,8 @@ function clearFavorites(){
 
 function expandFavorites(){
     $favoritesList.empty()
-    $("#favorite-title-list").append("<p id=favorites-title-small>General Dictionary Favorites</p>")
-    
-    for(let i=0; i < localStorage.length; i++){
+  
+  for(let i=0; i < localStorage.length; i++){
       let wordItem = localStorage.getItem(`word-${i}`)
       $favoritesList.append(`<div class="favorite-all" id="favorite-${wordItem}"><strong>${wordItem}</strong></div>`)
       $(`#favorite-${wordItem}`).append(`<p id="p-${wordItem}"></p>`)
