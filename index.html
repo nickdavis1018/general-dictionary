@@ -15,10 +15,11 @@
     <title>General Dictionary</title>
 </head>
 <body>
-<h1>General Dictionary</h1>
 <header>
+<h1>General Dictionary</h1>
 <div id="banner">
     <a id="home" href="./index.html">Home</a>
+    <a id="favorites" href="./index3.html">Favorites</a>
     <a id="about" href="./index2.html">About</a>
 </div>
 </header>
@@ -42,10 +43,11 @@
             <form>
     <input type="text" id="text-submit" placeholder="Search a word..."/><input type="submit" class="uniform" id="search" value="Go" />
             </form></div>
-              <div id="search-result"><p class="clear" id="word"></p><p class="clear" id="phonetic"></p><p class="clear" id="origin"></p>
+              <div id="search-result"><div id="set-as-favorite"><p class="clear" id="word"></p></div><p class="clear" id="phonetic"></p><p class="clear" id="origin"></p>
                 </div>
               <div id="sound"></div>
               <div class="description" id="definition"></div>
+              <p id="error-text"></p>
             </div>
             </div>
             </main>
