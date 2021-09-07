@@ -13,6 +13,8 @@ const $definition = $('#definition')
 const $input = $('input[id="text-submit"]');
 const $randWord = $("#random-word")
 const $randWordDesc = $("#random-word-description")
+const $favoritesList = $("#favorites-list")
+const $error = $("#error-text")
 
 function getWord(event){
   event.preventDefault();
@@ -23,6 +25,7 @@ function getWord(event){
       wordData = data;
       $(".description").html("")
       $(".clear").html("")
+      $error.html("")
       $input.val('');
       render();
     },
@@ -30,22 +33,25 @@ function getWord(event){
       $(".description").html("")
       $(".clear").html("")
       $sound.empty()
-      $definition.html(`<p>Something went wrong. <strong>"${$input.val()}"</strong> did not match our database and failed to return any results. Please try again with a different search.</p>`);
+      $definition.html("")
+      $error.html(`<p>Something went wrong. <strong>"${$input.val()}"</strong> did not match our database and failed to return any results. Please try again with a different search.</p>`);
       $definition.css("border", '')
       $input.val('');
     }
   )
 }
-
 function render() {
+  $("#favorite-submit").remove()
   $word.html(`${wordData[0].word}`);
+  $word.after(`<input type="submit" id="favorite-submit" value="Add to favorites">`)
+  $('#favorite-submit').on('click', addToFavorites)
   if(wordData[0].phonetic === undefined){
   $phonetic.html(`Phonetic Unknown`)
   }
   else{
   $phonetic.html(`/${wordData[0].phonetic}/`)}
   if(wordData[0].origin === undefined){
-  $origin.html(`Origin Unknown`)
+  $origin.html(`Unknown Origin`)
   }
   else{
   $origin.html(`<i>${wordData[0].origin}</i>`)}
@@ -94,7 +100,7 @@ function randomWord(){
       $randWord.html("Error. Word retrieval failed. Please refresh the page and try again.")})}    
       
     // Backup Random Word Function: To enable, comment out active randomWord function (lines 74-94) and comment in lines 98-118 below. //
-    
+
     // function randomWord(){
       //   $.ajax({
       //     url: "https://random-word-api.herokuapp.com/word?number=1"
@@ -128,8 +134,42 @@ function expandDetails(){
   $input.val(`${randomDataRef[0].word}`)
   $("#search").click()
 }
+
+function addToFavorites(){
+      localStorage.setItem(`word-${localStorage.length}`, `${$word.html()}`);
+      }
+
+function clearFavorites(){
+      localStorage.clear()
+      $favoritesList.empty()
+      }
+
+function expandFavorites(){
+    $favoritesList.empty()
+    $("#favorite-title-list").append("<p id=favorites-title-small>General Dictionary Favorites</p>")
+    
+    for(let i=0; i < localStorage.length; i++){
+      let wordItem = localStorage.getItem(`word-${i}`)
+      $favoritesList.append(`<div class="favorite-all" id="favorite-${wordItem}"><strong>${wordItem}</strong></div>`)
+      $(`#favorite-${wordItem}`).append(`<p id="p-${wordItem}"></p>`)
+      $(`#favorite-${wordItem}`).css("border-top", "solid")
+      $(`#favorite-${wordItem}`).css("border-color", "gray")
+      $(`#favorite-${wordItem}`).css("padding-bottom", "10px")
+      $.ajax({
+            url: `https://api.dictionaryapi.dev/api/v2/entries/en/${wordItem}`
+          }).then(
+              function(data){
+              favoriteData = data;
+              $(`#p-${wordItem}`).html(`(${favoriteData[0].meanings[0].partOfSpeech})<br>${favoriteData[0].meanings[0].definitions[0].definition}`)}
+              ,
+              function(error){
+                console.log("Something went wrong.")})}}
+
+
     $('form').on('submit', getWord);
     $(document).ready(randomWord);
     $('#reset').on('click', clearRandom)
     $('#expand').on('click', expandDetails)
-
+    $('#favorites-button').on('click', expandFavorites)
+    $('#clear-button').on('click', clearFavorites)
+    $('#favorite-submit').on('click', addToFavorites)
