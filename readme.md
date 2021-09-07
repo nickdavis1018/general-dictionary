@@ -12,6 +12,7 @@ General Dictionary
 <ul>
 <li>Locate another endpoint that can be accessed at the highest level - <a href="https://dictionaryapi.dev/">https://dictionaryapi.dev/</a> limits our ability to loop over all word names in the array. Because of this, we have been unable to build a "did you mean?" search feature, and therefore will provide a frustrating user experience when typos inevitably occur. A workaround for this is to copy/paste all word names from the GitHub repository associated with <a href="https://dictionaryapi.dev/">https://dictionaryapi.dev/</a>, but that has a tangible impact on speed and overall defeats part of the purpose of this project, which is to work dynamically with the API's and not house their data within our code.</li>
 <li>Connect to various translation-focused endpoints to generate equally comprehensive definitions/pronunciations across multiple languages, as providing a multi-lingual experience would optimize the tool.</li>
+<li>Add Local Favorites Functionality. Users can currently only access one master list of bookmarked words and can only clear it all at once. Goal will be to expand functionality to allow users to expand details on Favorited words as well as remove individual items.
 <li>Add more interactivity and visual stimulation onto the page; improve styling.</li>
 </ul>
 <h2>Usage and Navigation Instruction</h2>
