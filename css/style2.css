@@ -8,6 +8,7 @@ html {
     margin: 0px;
     min-height: 100%;
     width: 100%;
+    font-family: "Roboto";
   }
 
   #content{
@@ -34,16 +35,19 @@ html {
   color: white;
 }
 
-#about{
-    color: white;
-}
-
 #home{
     color: white;
-}
+  }
+  
+  #about{
+    color: white;
+  }
+  
+  #favorites{
+    color: white;
+  }
 
 .pics{
 width: 100%;
 height: auto;
-border: solid #818a87cc;
 }
