@@ -15,36 +15,38 @@
     <title>General Dictionary</title>
 </head>
 <body>
-<header>
 <h1>General Dictionary</h1>
+<header>
 <div id="banner">
     <a id="home" href="./index.html">Home</a>
     <a id="about" href="./index2.html">About</a>
 </div>
 </header>
-</div id="flex-master">
-<div id="random-container">
+<div id="random-word-box-container">
 <div id="random-word-box">
 <h2 id="rand-title">Random Vocabulary Word</h2>
 <h3 id="learn-rand-title">Learn a new word!</h3>
 <p id="random-word"></p>
 <div id="random-word-description"></div>
-<input type="submit" class="uniform" id="reset" value="New Word"/>
-<input type="submit" class="uniform" id="expand" value="Search Details"/>
+<div id="random-buttons">
+<input type="submit" class="uniform" id="expand" value="Show details"/>
+<input type="submit" class="uniform" id="reset" value="Generate new word"/>
+</div>
 </div>
 </div>
 <main>
+<div id="word-search-container">
 <div id="word-search">
 <h2>General Word Search</h2>
-<h3>Learn <i>any</i> new word!</h3>
+<h3 id="word-search-title">Learn <i>any</i> new word!</h3>
             <form>
-    <input type="text" id="text-submit" placeholder="Search a word..."/><input type="submit" class="uniform" id="search" value="Get Details" />
+    <input type="text" id="text-submit" placeholder="Search a word..."/><input type="submit" class="uniform" id="search" value="Go" />
             </form></div>
-            <div id="main-flex">
-              <p class="clear" id="word"></p><p class="clear" id="phonetic"></p><p class="clear" id="origin"></p>
-              <div id="pronounce"></div>
-            </div>
+              <div id="search-result"><p class="clear" id="word"></p><p class="clear" id="phonetic"></p><p class="clear" id="origin"></p>
+                </div>
+              <div id="sound"></div>
               <div class="description" id="definition"></div>
+            </div>
             </div>
             </main>
 </body>
