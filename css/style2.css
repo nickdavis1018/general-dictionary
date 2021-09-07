@@ -1,20 +1,48 @@
-body{
-    font-family: 'Roboto';
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  #content{
+      margin-left: 40px;
+      margin-right: 10px;
   }
   
   h1{
+    background-color: #008055CC;
     text-align: center;
-    background-color: #008055;
-    margin: -10px -10px auto;
+    color: white;
+    margin: 0 auto;
   }
-  
+
   h2{
     font-size: 20px;
   }
   
-  #banner{
-    margin: 0px -10px auto;
-    display: flex;
-    justify-content: space-around;
-    background-color: palegoldenrod;
-  }
+#banner{
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #008055;
+  color: white;
+}
+
+#about{
+    color: white;
+}
+
+#home{
+    color: white;
+}
+
+.pics{
+width: 100%;
+height: auto;
+}
