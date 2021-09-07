@@ -1,40 +1,73 @@
-body{
-  font-family: 'Roboto';
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
 }
 
 h1{
+  background-color: #008055CC;
   text-align: center;
-  background-color: #008055;
-  margin: -10px -10px auto;
+  color: white;
+  margin: 0 auto;
 }
 
-h2{
-  font-size: 20px;
+#definition{
+  margin: 0px 0px 0px 50px;
+  padding: 0px 0px 40px 0px;
 }
 
-h3{
-  font-size: 14px;
-  font-style: italic;
-  margin: -10px 0px 25px 0px
+#random-word{
+  position: relative;
+  bottom: 10px;
+}
+#random-word-description{
+  position: relative;
+  bottom: 10px;
+  }
+
+#search-result{
+  margin: 0px 0px 0px 50px;
+  padding: 0px 0px 40px 0px;
 }
 
 #learn-rand-title{
-  text-align: center;
+  font-size: 14px;
+  color: #008055;
+}
+
+#rand-title{
+  position: relative;
+  top: 20px;
+}
+
+
+#word-search-title{
+  font-size: 14px;
+  color: #008055;
+  position: relative;
+  bottom: 32px;
+  left: 2px;
 }
 
 #word{
   width: 48px;
   height: 10px;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 28px;
+  color: #064932;
 }
 
 #random-word{
-  text-align: center;
   height: 10px;
   font-weight: bold;
-  font-style: italic;
-  font-size: 22px;
+  font-size: 28px;  
+  color: #064932;
 }
 
 #text-submit{
@@ -44,79 +77,132 @@ h3{
   box-sizing: border-box;
   border-radius: 6px;
   color: #434A54;
+
 }
 
 #search{
-  width: 100px;
+  width: 40px;
   height: 30px;
   border: 1px solid #CCD0D9;
   box-sizing: border-box;
   border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 #reset{
-  width: 100px;
+  width: fit-content;
   height: 30px;
   border: 1px solid #CCD0D9;
   box-sizing: border-box;
   border-radius: 6px;
+  color: white;
+  font-weight: bold;
 }
 
 #expand{
-  width: 100px;
+  width: fit-content;
   height: 30px;
   border: 1px solid #CCD0D9;
   box-sizing: border-box;
   border-radius: 6px;
+  color: #434A54;
+  font-weight: bold;
+  background-color: #DFE0E5;
 } 
 
 #banner{
-  margin: 0px -10px auto;
+  margin: 0px auto;
   display: flex;
   justify-content: space-around;
-  background-color: palegoldenrod;
+  background-color: #008055;
+  color: white;
 }
 
 .ant-css{
-  padding: 0px 0px 0px 20px
+  padding: 0px 0px 0px 20px;
+  font-size: 16px;
 }
 
 .syn-css{
-  padding: 0px 0px 0px 20px
+  padding: 0px 0px 0px 20px;
+  font-size: 16px;
 }
 
 .ex-css{
-  padding: 0px 0px 0px 20px
+  padding: 0px 0px 0px 20px;
+  font-size: 16px;
 }
 
-#random-container{
-  display: flex;
-  justify-content: center;
-}
+#random-word-box-container{
+  background-color: #f9f7f9ea;
+  position: relative;
+  bottom: 20px;}
 
 #random-word-box{
-  border: 2px solid black;
-  border-radius: 12px;
-  width: 2000px;
-  text-align: center;
-  background-color: rgb(182, 181, 181);
-  margin: 0px -20px 0px -20px;
-  padding: 0px 0px 20px 0px;
+  margin: 0px 0px 0px 50px;
+  padding: 0px 0px 25px 0px;
+  background-color: #f9f7f9ea;
+}
+
+#word-search{
+  margin: 0px 0px 0px 50px;
+  padding: 0px 0px 40px 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+#word-search-container{
+  border-top: solid #818a87cc;
+  position: relative;
+  bottom: 20px;
 }
 
 #pronounce{
   width: 300px;
 }
 
-#word-search{
-  text-align: center;
-  border: 2px solid black;
-  background-color: rgb(182, 181, 181);
-  border-radius: 12px;
-  margin: 0px -20px 0px -20px;
-  padding: 0px 0px 20px 0px
+#sound{
+  position: relative;
+  bottom: 140px;
+  margin: 0px 0px 0px 45px;
+}
+
+#phonetic{
+  position: relative;
+  bottom: 10px;
+}
+
+#origin{
+  position: relative;
+  bottom: 20px;
 }
 
 .uniform{
-  background-color: #31d49e;
+  background-color: #008055CC;
+}
+
+form{
+  position: relative;
+  bottom: 32px;
+}
+
+#home{
+  color: white;
+}
+
+#about{
+  color: white;
+}
+
+#search-result{
+  position: relative;
+  bottom: 80px;
+}
+
+#definition{
+  position: relative;
+  bottom: 130px;
 }
