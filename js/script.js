@@ -44,7 +44,7 @@ function getWord(event){
 function render() {
   $("#favorite-submit").remove()
   $word.html(`${wordData[0].word}`);
-  $word.after(`<input type="submit" id="favorite-submit" value="Add to favorites">`)
+  $word.after(`<input type="submit" class="uniform" id="favorite-submit" value="Add to favorites">`)
   $('#favorite-submit').on('click', addToFavorites)
   $('.uniform').on('hover', $('.uniform').css("cursor", "pointer"))
   if(wordData[0].phonetic === undefined){
@@ -101,7 +101,7 @@ function randomWord(){
     function(error){
       $randWord.html("Error. Word retrieval failed. Please refresh the page and try again.")})}    
       
-    // Backup Random Word Function: To enable, comment out active randomWord function (lines 74-94) and comment in lines 98-118 below. //
+    // Backup Random Word Function: To enable, comment out active randomWord function (lines 82-102) and comment in lines 106-126 below. //
 
     // function randomWord(){
       //   $.ajax({
