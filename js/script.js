@@ -32,6 +32,7 @@ function getWord(event){
     function(error){
       $(".description").html("")
       $(".clear").html("")
+      $("#favorite-submit").remove()
       $sound.empty()
       $definition.html("")
       $error.html(`<p>Something went wrong. <strong>"${$input.val()}"</strong> did not match our database and failed to return any results. Please try again with a different search.</p>`);
