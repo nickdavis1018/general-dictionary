@@ -24,7 +24,7 @@ General Dictionary
 <p>To utilize the randomized vocabulary word tool, simply refresh the page or, if desired, click the <strong>"Generate new word"</strong> button to populate a new word:</p>
 <img src=https://imgur.com/v610jvk.png class="pics">
 <br>
-<p>Clicking "Show details" will run the Random Word throutgh the General Word Search and provide more information including synonyms, pronunciation, etc:</p>
+<p>Clicking <strong>"Show details"</strong> will run the Random Word throutgh the General Word Search and provide more information including synonyms, pronunciation, etc:</p>
 <img src=https://imgur.com/e0G7zKv.png class="pics">
 <br>
 <p>To utilize the <strong>"General Word Search"</strong> feature, type your word of choice into the displayed search bar and either click "Go" or hit Enter/Return on your keyboard to populate the chosen word's defintion data:</p>
