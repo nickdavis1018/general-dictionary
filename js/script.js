@@ -46,6 +46,7 @@ function render() {
   $word.html(`${wordData[0].word}`);
   $word.after(`<input type="submit" id="favorite-submit" value="Add to favorites">`)
   $('#favorite-submit').on('click', addToFavorites)
+  $('.uniform').on('hover', $('.uniform').css("cursor", "pointer"))
   if(wordData[0].phonetic === undefined){
   $phonetic.html(`Phonetic Unknown`)
   }
@@ -176,3 +177,5 @@ function expandFavorites(){
     $('#favorites-button').on('click', expandFavorites)
     $('#clear-button').on('click', clearFavorites)
     $('#favorite-submit').on('click', addToFavorites)
+    $('.uniform').on('hover', $('.uniform').css("cursor", "pointer"))
+    $(".local-storage-btn").on('hover', $(".local-storage-btn").css("cursor", "pointer"))
