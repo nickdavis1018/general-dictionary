@@ -136,6 +136,8 @@ function expandDetails(){
   $("#search").click()
 }
 
+// Favorite/Local Storage Functions. This isn't quite where I want it yet, but it works. It needs to include buttons to expand detail for the specified word, and also a button to remove individual words from the favorite list. At this time the functions below work fine but the data can only be cleared in-bulk and does not yet prevent duplication of entries //
+
 function addToFavorites(){
       localStorage.setItem(`word-${localStorage.length}`, `${$word.html()}`);
       }
@@ -150,21 +152,22 @@ function expandFavorites(){
   
   for(let i=0; i < localStorage.length; i++){
       let wordItem = localStorage.getItem(`word-${i}`)
-      $favoritesList.append(`<div class="favorite-all" id="favorite-${wordItem}"><strong>${wordItem}</strong></div>`)
-      $(`#favorite-${wordItem}`).append(`<p id="p-${wordItem}"></p>`)
-      $(`#favorite-${wordItem}`).css("border-top", "solid")
-      $(`#favorite-${wordItem}`).css("border-color", "gray")
-      $(`#favorite-${wordItem}`).css("padding-bottom", "10px")
+      $favoritesList.append(`<div class="favorite-all" id="favorite-${i}"><strong>${wordItem}</strong></div>`)
+      $(`#favorite-${i}`).append(`<p id="p-${i}"></p>`)
+      $(`#favorite-${i}`).css("border-top", "solid")
+      $(`#favorite-${i}`).css("border-color", "gray")
+      $(`#favorite-${i}`).css("padding-bottom", "10px")
       $.ajax({
             url: `https://api.dictionaryapi.dev/api/v2/entries/en/${wordItem}`
           }).then(
               function(data){
               favoriteData = data;
-              $(`#p-${wordItem}`).html(`(${favoriteData[0].meanings[0].partOfSpeech})<br>${favoriteData[0].meanings[0].definitions[0].definition}`)}
+              $(`#p-${i}`).html(`(${favoriteData[0].meanings[0].partOfSpeech})<br>${favoriteData[0].meanings[0].definitions[0].definition}`)}
               ,
               function(error){
                 console.log("Something went wrong.")})}}
 
+// End Favorites Functions JS //
 
     $('form').on('submit', getWord);
     $(document).ready(randomWord);
